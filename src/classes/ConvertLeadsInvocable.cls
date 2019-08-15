@@ -122,18 +122,30 @@ public with sharing class ConvertLeadsInvocable {
     // --------------------------------------------------------------------------------
 
     private static Database.LeadConvert transform( LeadConvertRequest request ) {
-
+        
+		List<Lead> lead = [select id, Name, Email, Company from Lead where Id =: request.leadId];
+        
         Database.LeadConvert convertRequest = new Database.LeadConvert();
-
+				
         convertRequest.setLeadId( request.leadId );
         convertRequest.setConvertedStatus( request.convertedStatus );
 
         if ( request.accountId != null ) {
             convertRequest.setAccountId( request.accountId );
+        } else {
+            List<Account> Acc = [select id, Name from Account where Name =: lead[0].Company limit 1];
+            if(Acc.size() > 0){
+                convertRequest.setAccountId( Acc[0].Id );
+            }
         }
 
         if ( request.contactId != null ) {
             convertRequest.setContactId( request.contactId );
+        } else {
+            List<Contact> Con = [select id, Email from Contact where Email =: lead[0].Email limit 1];
+            if(Con.size() > 0){
+                convertRequest.setContactId( Con[0].Id );
+            }
         }
 
         if ( request.overwriteLeadSource != null && request.overwriteLeadSource ) {
