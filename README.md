@@ -11,6 +11,9 @@ Convert Leads into Accounts, Contacts, and (optional) Opportunities on-demand ac
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
 
+# Preview - Process Builder
+<img alt="Deploy to Salesforce"
+       src="https://github.com/mhamzas/sfdc-auto-convert-leads-process/blob/master/ss1.PNG">
 
 # Usage
 
