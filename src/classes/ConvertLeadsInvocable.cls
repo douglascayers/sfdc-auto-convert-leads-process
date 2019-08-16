@@ -6,6 +6,7 @@
  * https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_InvocableVariable.htm
  *
  * Developed by Doug Ayers, douglascayers.com
+ * Updated by M Hamza Siddiqui, mhamzas.com
  */
 public with sharing class ConvertLeadsInvocable {
 
