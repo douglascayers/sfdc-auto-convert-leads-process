@@ -156,11 +156,11 @@ public with sharing class ConvertLeadsInvocable {
         List<Database.LeadConvert> convertRequests = new List<Database.LeadConvert>();
         for ( LeadConvertRequest request : requests ) {
             // If Map Contains AccountId for Lead
-            if(MapofLead_acc.containskey(request.leadId) && request.existingacc ==  TRUE){
+            if(request.accountId == null && MapofLead_acc.containskey(request.leadId) && request.existingacc ==  TRUE){
                 request.accountId = MapofLead_acc.get(request.leadId);
             }
             // If Map Contains ContactId for Lead
-            if(MapofLead_con.containskey(request.leadId)  && request.existingcon ==  TRUE){
+            if(request.contatctId == null && MapofLead_con.containskey(request.leadId)  && request.existingcon ==  TRUE){
                 request.contactId = MapofLead_con.get(request.leadId);
             }
             convertRequests.add( transform( request ) );
