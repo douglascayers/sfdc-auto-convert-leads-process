@@ -160,7 +160,7 @@ public with sharing class ConvertLeadsInvocable {
                 request.accountId = MapofLead_acc.get(request.leadId);
             }
             // If Map Contains ContactId for Lead
-            if(request.contatctId == null && MapofLead_con.containskey(request.leadId)  && request.existingcon ==  TRUE){
+            if(request.contactId == null && MapofLead_con.containskey(request.leadId)  && request.existingcon ==  TRUE){
                 request.contactId = MapofLead_con.get(request.leadId);
             }
             convertRequests.add( transform( request ) );
